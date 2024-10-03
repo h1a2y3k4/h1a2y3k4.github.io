@@ -1,5 +1,5 @@
 console.log("hhhhhhhh")
-const fs = require('fs');
+import fs from 'fs';
 try {
   const data = fs.readFileSync('./data.json', 'utf8');
   console.log('File content:', data);
