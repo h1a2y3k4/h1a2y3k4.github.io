@@ -1,4 +1,3 @@
-console.log("hhhhhhhh")
 import fs from 'fs';
 try {
   const data = fs.readFileSync('./data.json', 'utf8');
