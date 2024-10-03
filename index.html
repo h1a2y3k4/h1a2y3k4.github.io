@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Language Center</title>
     <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #ffcc00;
+            --hover-color: #ff9933;
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --white: #ffffff;
+            --gray: #666;
+        }
+
         /* General Styles */
         * {
             margin: 0;
@@ -15,7 +26,18 @@
 
         body {
             line-height: 1.6;
-            background-color: #f9f9f9;
+            background-color: var(--background-color);
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
         /* Header */
@@ -23,8 +45,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #0056b3;
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--white);
             padding: 15px 20px;
         }
 
@@ -43,13 +65,17 @@
         }
 
         nav ul li a {
-            color: white;
-            text-decoration: none;
+            color: var(--white);
             font-size: 1.1rem;
         }
 
         nav ul li a:hover {
             text-decoration: underline;
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px;
         }
 
         /* Hero Section */
@@ -59,7 +85,7 @@
             background-position: center;
             padding: 60px 20px;
             text-align: center;
-            color: white;
+            color: var(--white);
         }
 
         .hero h1 {
@@ -74,16 +100,15 @@
 
         .cta-button {
             padding: 10px 20px;
-            background-color: #ffcc00;
-            color: black;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
             border: none;
             font-size: 1rem;
             cursor: pointer;
-            text-decoration: none;
         }
 
         .cta-button:hover {
-            background-color: #ff9933;
+            background-color: var(--hover-color);
         }
 
         /* Courses Section */
@@ -104,15 +129,10 @@
         }
 
         .course-item {
-            background-color: white;
+            background-color: var(--white);
             border: 1px solid #ddd;
             padding: 20px;
             text-align: center;
-        }
-
-        .course-item img {
-            max-width: 100%;
-            height: auto;
         }
 
         .course-item h3 {
@@ -120,35 +140,50 @@
         }
 
         .course-item p {
-            color: #666;
+            color: var(--gray);
         }
 
         /* Footer */
         footer {
-            background-color: #333;
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--white);
             text-align: center;
             padding: 20px;
         }
 
         .footer-links a {
-            color: white;
+            color: var(--white);
             margin: 0 10px;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
         }
 
         .social-media a {
-            color: white;
+            color: var(--white);
             margin: 0 10px;
-            text-decoration: none;
         }
 
-        .social-media a:hover {
-            text-decoration: underline;
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-button {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -168,36 +203,39 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Learn a new language fast</h1>
-            <p>Join our professional language programs to master any language.</p>
-            <a href="#" class="cta-button">Get Started</a>
-        </div>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Learn a new language fast</h1>
+                <p>Join our professional language programs to master any language.</p>
+                <a href="#" class="cta-button">Get Started</a>
+            </div>
         </section>
 
-    <!-- Courses Section -->
-    <section class="courses">
-        <h2>Our Programs</h2>
-        <div class="course-grid">
-            <div class="course-item">
-                <img src="language.jpg" alt="Language Program">
-                <h3>Languages</h3>
-                <p>Learn a variety of languages with expert instructors.</p>
+        <!-- Courses Section -->
+        <section class="courses">
+            <h2>Our Programs</h2>
+            <div class="course-grid">
+                <div class="course-item">
+                    <img src="language.jpg" alt="Language Program">
+                    <h3>Languages</h3>
+                    <p>Learn a variety of languages with expert instructors.</p>
+                </div>
+                <div class="course-item">
+                    <img src="business.jpg" alt="Business Program">
+                    <h3>Business</h3>
+                    <p>Improve communication skills for the global marketplace.</p>
+                </div>
+                <div class="course-item">
+                    <img src="kids.jpg" alt="Kids Program">
+                    <h3>Kids & Teens</h3>
+                    <p>Fun and interactive classes for young learners.</p>
+                </div>
             </div>
-            <div class="course-item">
-                <img src="business.jpg" alt="Business Program">
-                <h3>Business</h3>
-                <p>Improve communication skills for the global marketplace.</p>
-            </div>
-            <div class="course-item">
-                <img src="kids.jpg" alt="Kids Program">
-                <h3>Kids & Teens</h3>
-                <p>Fun and interactive classes for young learners.</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer Section -->
     <footer>
