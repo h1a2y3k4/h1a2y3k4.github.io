@@ -7,10 +7,15 @@ fetch('https://h1a2y3k4.github.io/data.json')
   })
   .then(text => {
     console.log('Response text:', text); // Log the raw response text
-    return JSON.parse(text); // Manually parse JSON
+    const data = JSON.parse(text); // Manually parse JSON
+
+    // Add the new entry to the parsed data
+    data.FFFFF = 'fddffddfd'; // Add the key-value pair
+
+    return data; // Return the modified data
   })
   .then(data => {
-    console.log('File content:', data); // Use the data here
+    console.log('Updated file content:', data); // Use the updated data here
   })
   .catch(err => {
     console.error('Error fetching data:', err); // Handle any errors
