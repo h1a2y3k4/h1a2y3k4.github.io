@@ -1,3 +1,4 @@
+console.log("hhhhhhhh")
 const fs = require('fs');
 try {
   const data = fs.readFileSync('./data.json', 'utf8');
