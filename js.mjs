@@ -1,22 +1,35 @@
-fetch('https://h1a2y3k4.github.io/data.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.text(); // Get response as text first
-  })
-  .then(text => {
-    console.log('Response text:', text); // Log the raw response text
-    const data = JSON.parse(text); // Manually parse JSON
+const fs = require('fs');
+const path = require('path');
 
-    // Add the new entry to the parsed data
-    data.FFFFF = 'fddffddfd'; // Add the key-value pair
+// Path to your data.json file
+const filePath = path.join(__dirname, 'data.json');
 
-    return data; // Return the modified data
-  })
-  .then(data => {
-    console.log('Updated file content:', data); // Use the updated data here
-  })
-  .catch(err => {
-    console.error('Error fetching data:', err); // Handle any errors
-  });
+// Read the existing data from data.json
+fs.readFile(filePath, 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+    return;
+  }
+
+  try {
+    // Parse the JSON data
+    const jsonData = JSON.parse(data);
+
+    // Add the new entry
+    jsonData.FFFFF = 'fddffddfd';
+
+    // Convert back to JSON string
+    const updatedJson = JSON.stringify(jsonData, null, 2); // Pretty print with 2 spaces
+
+    // Write the updated data back to data.json
+    fs.writeFile(filePath, updatedJson, 'utf8', (err) => {
+      if (err) {
+        console.error('Error writing file:', err);
+        return;
+      }
+      console.log('data.json has been updated successfully.');
+    });
+  } catch (parseErr) {
+    console.error('Error parsing JSON:', parseErr);
+  }
+});
